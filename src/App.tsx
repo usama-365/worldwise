@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { HomePage } from "./pages/HomePage";
-import { ErrorPage } from "./pages/ErrorPage";
+import { HomePage } from "./pages/home/HomePage";
+import { ErrorPage } from "./pages/error/ErrorPage";
 import { ROUTES } from "./utils/routes.utils";
 import { RootLayout } from "./layouts/RootLayout";
-import { ProductsPage } from "./pages/ProductsPage";
-import { PricingPage } from "./pages/PricingPage";
+import { ProductsPage } from "./pages/products/ProductsPage";
+import { PricingPage } from "./pages/pricing/PricingPage";
 
 const router = createBrowserRouter([
   {
