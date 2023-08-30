@@ -8,6 +8,7 @@ import { LoginPage } from "./pages/login/LoginPage";
 import { AppPage } from "./pages/app/AppPage";
 import { useEffect, useState } from "react";
 import { CityList } from "./components/city-list/CityList";
+import { CountryList } from "./components/country-list/CountryList";
 
 export type City = {
   cityName: string;
@@ -53,11 +54,17 @@ export default function App() {
         <Route path={ROUTES.LOGIN_PAGE} element={<LoginPage />} />
         <Route path={ROUTES.APP_PAGE} element={<AppPage />}>
           <Route
-            path="cities"
             index
             element={<CityList isLoading={isLoading} cities={cities} />}
           />
-          <Route path="countries" element={<p>List of countries</p>} />
+          <Route
+            path="cities"
+            element={<CityList isLoading={isLoading} cities={cities} />}
+          />
+          <Route
+            path="countries"
+            element={<CountryList cities={cities} isLoading={isLoading} />}
+          />
           <Route path="form" element={<p>Form</p>} />
         </Route>
         <Route path="*" element={<ErrorPage />} />
