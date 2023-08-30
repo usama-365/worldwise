@@ -9,6 +9,7 @@ import { AppPage } from "./pages/app/AppPage";
 import { useEffect, useState } from "react";
 import { CityList } from "./components/city-list/CityList";
 import { CountryList } from "./components/country-list/CountryList";
+import CityDetail from "./components/city-detail/CityDetail";
 
 export type City = {
   cityName: string;
@@ -65,6 +66,7 @@ export default function App() {
             path="countries"
             element={<CountryList cities={cities} isLoading={isLoading} />}
           />
+          <Route path="cities/:id" element={<CityDetail />} />
           <Route path="form" element={<p>Form</p>} />
         </Route>
         <Route path="*" element={<ErrorPage />} />
