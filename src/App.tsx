@@ -32,6 +32,21 @@ const router = createBrowserRouter([
       {
         path: ROUTES.APP_PAGE,
         element: <AppPage />,
+        children: [
+          {
+            path: "countries",
+            element: <p>List of countries</p>,
+          },
+          {
+            path: "cities",
+            index: true,
+            element: <p>List of cities</p>,
+          },
+          {
+            path: "forms",
+            element: <p>List of forms</p>,
+          },
+        ],
       },
     ],
   },
