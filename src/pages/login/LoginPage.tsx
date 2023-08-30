@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import styles from "./LoginPage.module.css";
+import { Navbar } from "../../components/navbar/Navbar";
 
 export function LoginPage() {
   // PRE-FILL FOR DEV PURPOSES
@@ -9,6 +10,7 @@ export function LoginPage() {
 
   return (
     <main className={styles.login}>
+      <Navbar />
       <form className={styles.form}>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>

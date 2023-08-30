@@ -1,3 +1,10 @@
+import { Navbar } from "../../components/navbar/Navbar";
+
 export function ErrorPage() {
-  return <p>Not found</p>;
+  return (
+    <main>
+      <Navbar />
+      <p>Invalid </p>
+    </main>
+  );
 }

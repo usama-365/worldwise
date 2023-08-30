@@ -1,8 +1,10 @@
-import styles from "./ProductsPage.module.css";
+import { Navbar } from "../../components/navbar/Navbar";
+import styles from "./ProductPage.module.css";
 
-export function ProductsPage() {
+export function ProductPage() {
   return (
     <main className={styles.product}>
+      <Navbar />
       <section>
         <img
           src="img-1.jpg"

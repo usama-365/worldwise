@@ -3,14 +3,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomePage } from "./pages/home/HomePage";
 import { ErrorPage } from "./pages/error/ErrorPage";
 import { ROUTES } from "./utils/routes.utils";
-import { RootLayout } from "./layouts/RootLayout";
-import { ProductsPage } from "./pages/products/ProductsPage";
+import { ProductPage } from "./pages/product/ProductPage";
 import { PricingPage } from "./pages/pricing/PricingPage";
+import { LoginPage } from "./pages/login/LoginPage";
+import { AppPage } from "./pages/app/AppPage";
 
 const router = createBrowserRouter([
   {
     path: ROUTES.HOME_PAGE,
-    element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -19,11 +19,19 @@ const router = createBrowserRouter([
       },
       {
         path: ROUTES.PRODUCTS_PAGE,
-        element: <ProductsPage />,
+        element: <ProductPage />,
       },
       {
         path: ROUTES.PRICING_PAGE,
         element: <PricingPage />,
+      },
+      {
+        path: ROUTES.LOGIN_PAGE,
+        element: <LoginPage />,
+      },
+      {
+        path: ROUTES.APP_PAGE,
+        element: <AppPage />,
       },
     ],
   },
