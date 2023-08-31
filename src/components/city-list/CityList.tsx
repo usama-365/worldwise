@@ -1,15 +1,11 @@
-import { City } from "../../App";
 import { CityItem } from "../city-item/CityItem";
 import Message from "../message/Message";
 import Spinner from "../spinner/Spinner";
 import styles from "./CityList.module.css";
+import { useCities } from "../../contexts/CitiesContext";
 
-export type CityListProps = {
-  cities: City[];
-  isLoading: boolean;
-};
-
-export function CityList({ cities, isLoading }: CityListProps) {
+export function CityList() {
+  const { isLoading, cities } = useCities();
   if (isLoading) {
     return <Spinner />;
   } else if (!cities.length) {

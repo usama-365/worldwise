@@ -1,5 +1,4 @@
-import { City } from "../../App";
-import { CityListProps } from "../city-list/CityList";
+import { City, useCities } from "../../contexts/CitiesContext";
 import { CountryItem } from "../country-item/CountryItem";
 import Message from "../message/Message";
 import Spinner from "../spinner/Spinner";
@@ -17,7 +16,8 @@ const filterCountries = (cities: City[]): Country[] =>
     else return [...countries, { name: city.country, emoji: city.emoji }];
   }, []);
 
-export function CountryList({ cities, isLoading }: CityListProps) {
+export function CountryList() {
+  const { cities, isLoading } = useCities();
   if (isLoading) return <Spinner />;
   else if (cities.length === 0)
     return (
