@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { HomePage } from "./pages/home/HomePage";
 import { ErrorPage } from "./pages/error/ErrorPage";
 import { ROUTES } from "./utils/routes.utils";
@@ -9,7 +9,10 @@ import { AppPage } from "./pages/app/AppPage";
 import { useEffect, useState } from "react";
 import { CityList } from "./components/city-list/CityList";
 import { CountryList } from "./components/country-list/CountryList";
-import CityDetail from "./components/city-detail/CityDetail";
+import { CityDetail } from "./components/city-detail/CityDetail";
+import Form from "./components/form/Form";
+
+const API_URL = "http://localhost:8000";
 
 export type City = {
   cityName: string;
@@ -23,8 +26,6 @@ export type City = {
   };
   id: number;
 };
-
-const API_URL = "http://localhost:8000";
 
 export default function App() {
   const [cities, setCities] = useState<City[]>([]);
@@ -54,10 +55,7 @@ export default function App() {
         <Route path={ROUTES.PRICING_PAGE} element={<PricingPage />} />
         <Route path={ROUTES.LOGIN_PAGE} element={<LoginPage />} />
         <Route path={ROUTES.APP_PAGE} element={<AppPage />}>
-          <Route
-            index
-            element={<CityList isLoading={isLoading} cities={cities} />}
-          />
+          <Route index element={<Navigate to={"cities"} replace />} />
           <Route
             path="cities"
             element={<CityList isLoading={isLoading} cities={cities} />}
@@ -67,7 +65,7 @@ export default function App() {
             element={<CountryList cities={cities} isLoading={isLoading} />}
           />
           <Route path="cities/:id" element={<CityDetail />} />
-          <Route path="form" element={<p>Form</p>} />
+          <Route path="form" element={<Form />} />
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>

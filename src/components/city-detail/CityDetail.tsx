@@ -9,7 +9,7 @@ const formatDate = (date: string) =>
     weekday: "long",
   }).format(new Date(date));
 
-function CityDetail() {
+export function CityDetail() {
   const { id } = useParams();
 
   // TEMP DATA
@@ -61,5 +61,3 @@ function CityDetail() {
   // );
   return <p>City Detail</p>;
 }
-
-export default CityDetail;
